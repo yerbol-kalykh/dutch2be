@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Api", "Dutch2Be.Api\Dutch2Be.Api.csproj", "{A4F0C32D-F57C-400F-94DA-C6D5557DF53F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Api", "Dutch2Be.Api\Dutch2Be.Api.csproj", "{A4F0C32D-F57C-400F-94DA-C6D5557DF53F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Domain", "Dutch2Be.Domain\Dutch2Be.Domain.csproj", "{BE34D002-3556-4D3A-AB1B-7203988A560D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,12 +19,17 @@ Global
 		{A4F0C32D-F57C-400F-94DA-C6D5557DF53F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4F0C32D-F57C-400F-94DA-C6D5557DF53F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4F0C32D-F57C-400F-94DA-C6D5557DF53F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE34D002-3556-4D3A-AB1B-7203988A560D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE34D002-3556-4D3A-AB1B-7203988A560D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE34D002-3556-4D3A-AB1B-7203988A560D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE34D002-3556-4D3A-AB1B-7203988A560D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A4F0C32D-F57C-400F-94DA-C6D5557DF53F} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
+		{BE34D002-3556-4D3A-AB1B-7203988A560D} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DBFBFF1-05B5-40A2-991A-CF4024C11A80}
