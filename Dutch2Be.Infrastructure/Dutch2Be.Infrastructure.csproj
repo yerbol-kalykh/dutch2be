@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Dutch2Be.Application\Dutch2Be.Application.csproj" />
     <ProjectReference Include="..\Dutch2Be.Domain\Dutch2Be.Domain.csproj" />
   </ItemGroup>
 

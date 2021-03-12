@@ -7,9 +7,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{7CB0F722-D4D
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Domain", "Dutch2Be.Domain\Dutch2Be.Domain.csproj", "{BE34D002-3556-4D3A-AB1B-7203988A560D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Api", "Dutch2Be.Api\Dutch2Be.Api.csproj", "{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Api", "Dutch2Be.Api\Dutch2Be.Api.csproj", "{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Infrastructure", "Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj", "{3EAA0C44-36E1-452E-A652-400E746D8B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Infrastructure", "Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj", "{3EAA0C44-36E1-452E-A652-400E746D8B6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Application", "Dutch2Be.Application\Dutch2Be.Application.csproj", "{8C405A04-47FE-48FF-805A-8E808E0F1BEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{3EAA0C44-36E1-452E-A652-400E746D8B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EAA0C44-36E1-452E-A652-400E746D8B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EAA0C44-36E1-452E-A652-400E746D8B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -37,6 +43,7 @@ Global
 		{BE34D002-3556-4D3A-AB1B-7203988A560D} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
 		{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
 		{3EAA0C44-36E1-452E-A652-400E746D8B6B} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DBFBFF1-05B5-40A2-991A-CF4024C11A80}

@@ -1,12 +1,13 @@
-﻿using Dutch2Be.Domain.Data.Entities;
+﻿using Dutch2Be.Application.Common.Interfaces;
+using Dutch2Be.Domain.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 namespace Dutch2Be.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        public DbSet<Word> Words{ get; set; }
+        public DbSet<Word> Words { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
