@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>
