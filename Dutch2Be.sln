@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Domain", "src\Dutch2Be.Domain\Dutch2Be.Domain.csproj", "{BE34D002-3556-4D3A-AB1B-7203988A560D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Domain", "Dutch2Be.Domain\Dutch2Be.Domain.csproj", "{BE34D002-3556-4D3A-AB1B-7203988A560D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Api", "src\Dutch2Be.Api\Dutch2Be.Api.csproj", "{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Api", "Dutch2Be.Api\Dutch2Be.Api.csproj", "{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Infrastructure", "src\Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj", "{3EAA0C44-36E1-452E-A652-400E746D8B6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Infrastructure", "Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj", "{3EAA0C44-36E1-452E-A652-400E746D8B6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dutch2Be.Application", "src\Dutch2Be.Application\Dutch2Be.Application.csproj", "{8C405A04-47FE-48FF-805A-8E808E0F1BEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dutch2Be.Application", "Dutch2Be.Application\Dutch2Be.Application.csproj", "{8C405A04-47FE-48FF-805A-8E808E0F1BEE}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2A1EB7CC-111E-4BDE-843B-F57C31BB36BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{552D5245-6F97-496B-98A7-1210438B1C46}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +45,10 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BE34D002-3556-4D3A-AB1B-7203988A560D} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
-		{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
-		{3EAA0C44-36E1-452E-A652-400E746D8B6B} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
-		{8C405A04-47FE-48FF-805A-8E808E0F1BEE} = {7CB0F722-D4D3-4A1C-86CA-4D02FD503BD3}
+		{BE34D002-3556-4D3A-AB1B-7203988A560D} = {2A1EB7CC-111E-4BDE-843B-F57C31BB36BF}
+		{F2D1A4B4-83AD-4EF5-B783-F8B59E8F90E4} = {2A1EB7CC-111E-4BDE-843B-F57C31BB36BF}
+		{3EAA0C44-36E1-452E-A652-400E746D8B6B} = {2A1EB7CC-111E-4BDE-843B-F57C31BB36BF}
+		{8C405A04-47FE-48FF-805A-8E808E0F1BEE} = {2A1EB7CC-111E-4BDE-843B-F57C31BB36BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3DBFBFF1-05B5-40A2-991A-CF4024C11A80}
