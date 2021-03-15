@@ -1,3 +1,4 @@
+using Dutch2Be.Application;
 using Dutch2Be.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,8 +21,9 @@ namespace Dutch2Be.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddInfrastructure(Configuration);
+            services.AddApplication();
 
+            services.AddInfrastructure(Configuration);
 
             services.AddControllers();
         }
