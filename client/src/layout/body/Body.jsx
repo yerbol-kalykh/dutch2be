@@ -1,26 +1,11 @@
-import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
 import React, { useContext } from "react";
-import InputForm from "../components/form/InputForm";
-import { AppContext } from "../context/AppContext";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    rootBody: {
-      display: "flex",
-      flexWrap: "wrap",
-      justifyContent: "space-around",
-    },
-    gridItem: {
-      // background: "red",
-      // border: "1px solid black",
-      minWidth: "40vw",
-    },
-    text: {
-      margin: "10vh auto ",
-    },
-  })
-);
+import InputForm from "../../components/form/InputForm";
+// style
+import { useStyles } from "./BodyStyle";
+// context
+import { AppContext } from "../../context/AppContext";
 
 const Body = () => {
   const { word } = useContext(AppContext);
