@@ -8,14 +8,23 @@ import { AppContext } from "../../context/AppContext";
 import { validationSchema } from "./FormValidation";
 // style
 import { useStyles } from "./InputFormStyle";
+// hooks
+// import { useHttpClient } from "../../hooks/http-hook";
 
 const InputForm = () => {
   const { word, setWord } = useContext(AppContext);
+  // const { sendRequest } = useHttpClient();
 
-  const onSubmit = (values, { resetForm }) => {
+  const onSubmit = async (values, { resetForm }) => {
     setWord(values.word);
     console.log(word);
     resetForm();
+
+    // try {
+    //   await sendRequest("http://localhost:5000/api/word", "POST", { word });
+    // } catch (error) {
+    //   console.log(error);
+    // }S
   };
 
   const { input, submitBtn, errMsg } = useStyles();
@@ -51,11 +60,10 @@ const InputForm = () => {
           >
             Submit
           </Button>
-          <h2>{word}</h2>
 
-          <h1>
+          {/* <h1>
             <pre>{JSON.stringify(values, null, 2)}</pre>
-          </h1>
+          </h1> */}
         </Form>
       )}
     </Formik>
