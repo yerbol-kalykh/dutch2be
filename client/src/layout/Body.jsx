@@ -1,7 +1,7 @@
 import { createStyles, Grid, makeStyles, Typography } from "@material-ui/core";
 import Skeleton from "@material-ui/lab/Skeleton";
 import React from "react";
-import InputForm from "../components/InputForm";
+import InputForm from "../components/form/InputForm";
 
 const useStyles = makeStyles((theme) =>
   createStyles({

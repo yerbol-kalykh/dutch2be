@@ -1,33 +1,13 @@
-import { createStyles, makeStyles, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
-import * as yup from "yup";
 // context
-import { AppContext } from "../context/AppContext";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    input: {
-      width: "100%",
-    },
-    submitBtn: {
-      width: "100%",
-      marginTop: "1vh",
-      padding: "3vh 0",
-    },
-    errMsg: {
-      color: "red",
-      background: "#333",
-      padding: "1vh 0",
-      textAlign: "center",
-    },
-  })
-);
-
-const validationSchema = yup.object({
-  word: yup.string().required("Required!, type a word"),
-});
+import { AppContext } from "../../context/AppContext";
+// form validation
+import { validationSchema } from "./FormValidation";
+// style
+import { useStyles } from "./InputFormStyle";
 
 const InputForm = () => {
   const { word, setWord } = useContext(AppContext);
