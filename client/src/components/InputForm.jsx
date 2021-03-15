@@ -1,8 +1,10 @@
 import { createStyles, makeStyles, TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React from "react";
+import React, { useContext } from "react";
 import * as yup from "yup";
+// context
+import { AppContext } from "../context/AppContext";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -23,15 +25,18 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
+const validationSchema = yup.object({
+  word: yup.string().required("Required!, type a word"),
+});
+
 const InputForm = () => {
+  const { word, setWord } = useContext(AppContext);
+
   const onSubmit = (values, { resetForm }) => {
-    console.log(values);
+    setWord(values.word);
+    console.log(word);
     resetForm();
   };
-
-  const validationSchema = yup.object({
-    word: yup.string().required("Required!, type a word"),
-  });
 
   const { input, submitBtn, errMsg } = useStyles();
 
@@ -43,7 +48,7 @@ const InputForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ values, isValid, isSubmitting, errors }) => (
+      {({ values, isValid, isSubmitting }) => (
         <Form>
           <Field
             name="word"
@@ -66,6 +71,11 @@ const InputForm = () => {
           >
             Submit
           </Button>
+          <h2>{word}</h2>
+
+          <h1>
+            <pre>{JSON.stringify(values, null, 2)}</pre>
+          </h1>
         </Form>
       )}
     </Formik>
