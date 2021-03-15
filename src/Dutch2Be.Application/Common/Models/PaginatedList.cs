@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dutch2Be.Application.Models
+namespace Dutch2Be.Application.Common.Models
 {
     public class PaginatedList<T>
     {
