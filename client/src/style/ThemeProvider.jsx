@@ -27,7 +27,8 @@ const ThemeProvider = ({ children }) => {
             background: "#777",
           },
           main: {
-            background: "#333",
+            background: "#eee",
+            minHeight: "89vh",
           },
           "@font-face": [],
         },

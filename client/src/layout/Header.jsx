@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) =>
 );
 
 const Header = () => {
-  const { root, title, startBtn } = useStyles();
+  const { root, title } = useStyles();
 
   return (
     <AppBar position="static" className={root}>
