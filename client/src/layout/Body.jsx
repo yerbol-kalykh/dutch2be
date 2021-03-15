@@ -27,9 +27,9 @@ const Body = () => {
   return (
     <main>
       <Grid container className={rootBody}>
-        <Grid item className={gridItem}>
+        {/* <Grid item className={gridItem}>
           <Skeleton variant="rect" width={480} height={400} />
-        </Grid>
+        </Grid> */}
         <Grid item className={gridItem}>
           <Typography variant="h5" className={text}>
             Type a word (Noun) and submit whether to know it takes (De | Het)
