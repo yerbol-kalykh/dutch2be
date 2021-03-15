@@ -12,7 +12,13 @@ const useStyles = makeStyles((theme) =>
     submitBtn: {
       width: "100%",
       marginTop: "1vh",
-      padding: "3vh",
+      padding: "3vh 0",
+    },
+    errMsg: {
+      color: "red",
+      background: "#333",
+      padding: "1vh 0",
+      textAlign: "center",
     },
   })
 );
@@ -24,10 +30,10 @@ const InputForm = () => {
   };
 
   const validationSchema = yup.object({
-    word: yup.string().required("Required!"),
+    word: yup.string().required("Required!, type a word"),
   });
 
-  const { input, submitBtn } = useStyles();
+  const { input, submitBtn, errMsg } = useStyles();
 
   return (
     <Formik
@@ -37,7 +43,7 @@ const InputForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ values, isValid, isSubmitting }) => (
+      {({ values, isValid, isSubmitting, errors }) => (
         <Form>
           <Field
             name="word"
@@ -47,7 +53,11 @@ const InputForm = () => {
             as={TextField}
             className={input}
           />
-          <ErrorMessage name="word" />
+
+          <ErrorMessage
+            name="word"
+            render={(msg) => <div className={errMsg}>{msg}</div>}
+          />
 
           <Button
             className={submitBtn}
