@@ -2,6 +2,7 @@
 {
     public enum Article
     {
+        None = 0,
         De = 1,
         Het = 2
     }
