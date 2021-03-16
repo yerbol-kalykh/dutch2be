@@ -8,6 +8,16 @@ namespace Dutch2Be.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Word> builder)
         {
+            builder.HasKey(b => b.Id)
+                   .IsClustered(false);
+
+            builder.Property(t => t.Value)
+                   .IsRequired()
+                   .HasMaxLength(256);
+
+            builder.HasIndex(e => e.Value)
+                   .IsUnique()
+                   .IsClustered();
         }
     }
 }

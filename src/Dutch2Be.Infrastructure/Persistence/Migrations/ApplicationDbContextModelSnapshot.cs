@@ -20,13 +20,25 @@ namespace Dutch2Be.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Dutch2Be.Domain.Data.Entities.Word", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Article")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id")
+                        .IsClustered(false);
+
+                    b.HasIndex("Value")
+                        .IsUnique()
+                        .IsClustered();
 
                     b.ToTable("Words");
                 });
