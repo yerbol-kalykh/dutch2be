@@ -1,11 +1,14 @@
-﻿using Dutch2Be.Domain.Data.Enums;
+﻿using Dutch2Be.Application.Common.Mappings;
+using Dutch2Be.Domain.Data.Entities;
 
 namespace Dutch2Be.Application.Words.Models
 {
-    public class WordDto
+    public class WordDto : IMapFrom<Word>
     {
-        public string Id { get; set; }
+        public int Id { get; set; }
 
-        public Article Article { get; set; }
+        public string Value { get; set; }
+
+        public string Article { get; set; }
     }
 }

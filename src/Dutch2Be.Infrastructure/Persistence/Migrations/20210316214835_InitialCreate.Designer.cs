@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dutch2Be.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210312224405_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20210316214835_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -22,13 +22,25 @@ namespace Dutch2Be.Infrastructure.Persistence.Migrations
 
             modelBuilder.Entity("Dutch2Be.Domain.Data.Entities.Word", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Article")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Value")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id")
+                        .IsClustered(false);
+
+                    b.HasIndex("Value")
+                        .IsUnique()
+                        .IsClustered();
 
                     b.ToTable("Words");
                 });
