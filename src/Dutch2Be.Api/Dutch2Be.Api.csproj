@@ -17,4 +17,10 @@
     <ProjectReference Include="..\Dutch2Be.Infrastructure\Dutch2Be.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="resources\dutch.json">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>
