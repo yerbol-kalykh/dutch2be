@@ -4,27 +4,33 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
 // context
 import { AppContext } from "../../context/AppContext";
+// hooks
+import { useHttpClient } from "../../hooks/http-hook";
 // form validation
 import { validationSchema } from "./FormValidation";
 // style
 import { useStyles } from "./InputFormStyle";
-// hooks
-// import { useHttpClient } from "../../hooks/http-hook";
 
 const InputForm = () => {
   const { word, setWord } = useContext(AppContext);
-  // const { sendRequest } = useHttpClient();
+  const { sendRequest } = useHttpClient();
 
   const onSubmit = async (values, { resetForm }) => {
     setWord(values.word);
     console.log(word);
-    resetForm();
 
     // try {
-    //   await sendRequest("http://localhost:5000/api/word", "POST", { word });
+    //   await sendRequest(
+    //     "http://localhost:5000/api/word",
+    //     "POST",
+    //     JSON.stringify({ word }),
+    //     { "Content-Type": "json/application" }
+    //   );
+
+    //   resetForm();
     // } catch (error) {
     //   console.log(error);
-    // }S
+    // }
   };
 
   const { input, submitBtn, errMsg } = useStyles();
@@ -42,7 +48,7 @@ const InputForm = () => {
           <Field
             name="word"
             label="Word"
-            placeholder="stool"
+            placeholder="man"
             value={values.word}
             as={TextField}
             className={input}
