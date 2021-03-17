@@ -1,27 +1,57 @@
-import { Grid, Typography } from "@material-ui/core";
+import { Button, Container, Grid, Paper, TextField } from "@material-ui/core";
 import React from "react";
-import AnswerBox from "../../components/AnswerBox";
-import InputForm from "../../components/form/InputForm";
-import Home2 from "./Home2";
+import IntroText from "../../components/intro-text/InrtoText";
 import { useStyles } from "./HomeStyle";
 
 const Home = () => {
-  const { rootBody, gridItem, text } = useStyles();
+  const {
+    mainContainer,
+    boxContainer,
+    inputDiv,
+    respondingArticle,
+    center,
+    waitingResponse,
+    de,
+    het,
+    inputContainer,
+    submitBtn,
+    input,
+  } = useStyles();
 
   return (
-    // <Grid container className={rootBody}>
-    //   <Grid item className={gridItem}>
-    //     <AnswerBox />
-    //   </Grid>
-    //   <Grid item className={gridItem}>
-    //     <Typography variant="h5" className={text}>
-    //       Type a word (Noun) and submit whether to know it takes (De | Het)
-    //     </Typography>
+    <Container className={mainContainer}>
+      <IntroText content="Type a word (Noun) and submit whether to know it takes (De | Het)" />
 
-    //     <InputForm />
-    //   </Grid>
-    // </Grid>
-    <Home2 />
+      <Grid container className={boxContainer}>
+        <Grid item xs={6}>
+          <Paper
+            className={`${center} ${respondingArticle} ${
+              true ? waitingResponse : true ? de : het
+            }`}
+          >
+            {true ? "?" : "De"}
+          </Paper>
+        </Grid>
+
+        <Grid item xs={6} className={inputContainer}>
+          <div className={inputDiv}>
+            <TextField
+              required
+              multiline={true}
+              // variant="outlined"
+              color="primary"
+              size="medium"
+              label="woord"
+              className={input}
+            />
+          </div>
+
+          <Button className={submitBtn} variant="contained">
+            Submit
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
