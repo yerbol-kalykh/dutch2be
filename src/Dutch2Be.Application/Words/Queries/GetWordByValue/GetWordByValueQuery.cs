@@ -3,6 +3,8 @@ using Dutch2Be.Application.Common.Interfaces;
 using Dutch2Be.Application.Words.Models;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,7 +28,7 @@ namespace Dutch2Be.Application.Words.Queries.GetWordByValue
 
         public async Task<WordDto> Handle(GetWordByValueQuery request, CancellationToken cancellationToken)
         {
-            var word = await _context.Words.FirstOrDefaultAsync(s => s.Value == request.Value, cancellationToken: cancellationToken);
+            var word = await _context.Words.AsNoTracking().FirstOrDefaultAsync(s => s.Value == request.Value, cancellationToken: cancellationToken);
 
             return _mapper.Map<WordDto>(word);
         }
