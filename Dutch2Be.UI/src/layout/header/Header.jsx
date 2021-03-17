@@ -15,14 +15,16 @@ const Header = () => {
         <Typography variant="h6" className={title}>
           Dutch2Be
         </Typography>
-        <Button variant="contained">
-          <Link to="/">
+        <Link to="/">
+          <Button variant="contained">
             <HomeIcon />
-          </Link>
-        </Button>
-        <Button className={testBtn} variant="contained">
-          <Link to="/testyourself">Test Yourself</Link>
-        </Button>
+          </Button>
+        </Link>
+        <Link to="/testyourself">
+          <Button className={testBtn} variant="contained">
+            Test Yourself
+          </Button>
+        </Link>
       </Toolbar>
     </AppBar>
   );
