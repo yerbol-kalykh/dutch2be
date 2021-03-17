@@ -20,7 +20,7 @@ const Home = () => {
 
   return (
     <Container className={mainContainer}>
-      <IntroText content="Type a word (Noun) and submit whether to know it takes (De | Het)" />
+      <IntroText content="Type a word (Noun) and submit to know whether it takes (De | Het)" />
 
       <Grid container className={boxContainer}>
         <Grid item xs={6}>
