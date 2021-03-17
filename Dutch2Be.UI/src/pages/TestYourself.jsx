@@ -1,7 +1,8 @@
 import React from "react";
+import QuizBox from "../components/test-yourself/QuizBox";
 
 const TestYourself = () => {
-  return <div>test yourself</div>;
+  return <QuizBox />;
 };
 
 export default TestYourself;
