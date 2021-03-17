@@ -1,38 +1,53 @@
 import { Button, Container, Grid, Paper, TextField } from "@material-ui/core";
 import React from "react";
+import IntroText from "../../components/intro-text/InrtoText";
 import { useStyles } from "./Home2Style";
 
 const Home2 = () => {
   const {
-    container,
-    containerGrid_QuizBoz,
-    basicStyle_QuizItem,
-    inputWord,
+    mainContainer,
+    boxContainer,
+    inputDiv,
+    respondingArticle,
+    center,
+    waitingResponse,
+    de,
+    het,
+    inputContainer,
+    submitBtn,
+    input,
   } = useStyles();
   return (
-    <Container className={container}>
-      <Grid
-        container
-        className={containerGrid_QuizBoz}
-        style={{ minWidth: "400px" }}
-      >
-        <Grid item container xs={6} style={{ minWidth: "400px" }}>
-          <Grid item xs={12}>
-            <Paper className={basicStyle_QuizItem}>De</Paper>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper className={basicStyle_QuizItem}>Het</Paper>
-          </Grid>
-        </Grid>
+    <Container className={mainContainer}>
+      <IntroText content="Type a word (Noun) and submit whether to know it takes (De | Het)" />
+
+      <Grid container className={boxContainer}>
         <Grid item xs={6}>
-          <TextField
-            required
-            multiline={true}
-            variant="outlined"
-            color="primary"
-            size="medium"
-            className={inputWord}
-          />
+          <Paper
+            className={`${center} ${respondingArticle} ${
+              true ? waitingResponse : true ? de : het
+            }`}
+          >
+            {true ? "?" : "De"}
+          </Paper>
+        </Grid>
+
+        <Grid item xs={6} className={inputContainer}>
+          <div className={inputDiv}>
+            <TextField
+              required
+              multiline={true}
+              // variant="outlined"
+              color="primary"
+              size="medium"
+              label="woord"
+              className={input}
+            />
+          </div>
+
+          <Button className={submitBtn} variant="contained">
+            Submit
+          </Button>
         </Grid>
       </Grid>
     </Container>

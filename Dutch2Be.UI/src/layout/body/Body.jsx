@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router";
 import Home from "../../pages/home/Home";
-import TestYourself from "../../pages/TestYourself";
+import TestYourself from "../../pages/test-yourself/TestYourself";
 
 const Body = () => (
   <main>
