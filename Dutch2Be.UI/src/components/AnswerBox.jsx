@@ -1,7 +1,7 @@
 import Skeleton from "@material-ui/lab/Skeleton";
 import React, { useContext } from "react";
 // context
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../providers/AppContext";
 
 const AnswerBox = () => {
   const { word } = useContext(AppContext);

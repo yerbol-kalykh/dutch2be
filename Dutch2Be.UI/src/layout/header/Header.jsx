@@ -1,30 +1,11 @@
-import MenuBookIcon from "@material-ui/icons/MenuBook";
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import HomeIcon from "@material-ui/icons/Home";
+import MenuBookIcon from "@material-ui/icons/MenuBook";
 import React from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  createStyles,
-  makeStyles,
-} from "@material-ui/core";
-
-const useStyles = makeStyles((theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      minHeight: "13vh",
-      maxWidth: "100vw",
-    },
-    title: {
-      flexGrow: 1,
-    },
-  })
-);
+import { useStyles } from "./HeaderStyle";
 
 const Header = () => {
-  const { root, title } = useStyles();
+  const { root, title, testBtn } = useStyles();
 
   return (
     <AppBar position="static" className={root}>
@@ -35,6 +16,9 @@ const Header = () => {
         </Typography>
         <Button variant="contained">
           <HomeIcon />
+        </Button>
+        <Button className={testBtn} variant="contained">
+          Test Yourself
         </Button>
       </Toolbar>
     </AppBar>

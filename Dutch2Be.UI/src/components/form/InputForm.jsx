@@ -3,9 +3,9 @@ import Button from "@material-ui/core/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
 // context
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../providers/AppContext";
 // hooks
-import { useHttpClient } from "../../hooks/http-hook";
+// import { useHttpClient } from "../../hooks/http-hook";
 // form validation
 import { validationSchema } from "./FormValidation";
 // style
@@ -13,7 +13,7 @@ import { useStyles } from "./InputFormStyle";
 
 const InputForm = () => {
   const { word, setWord } = useContext(AppContext);
-  const { sendRequest } = useHttpClient();
+  // const { sendRequest } = useHttpClient();
 
   const onSubmit = async (values, { resetForm }) => {
     setWord(values.word);
