@@ -3,6 +3,7 @@ import HomeIcon from "@material-ui/icons/Home";
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import React from "react";
 import { useStyles } from "./HeaderStyle";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const { root, title, testBtn } = useStyles();
@@ -15,10 +16,12 @@ const Header = () => {
           Dutch2Be
         </Typography>
         <Button variant="contained">
-          <HomeIcon />
+          <Link to="/">
+            <HomeIcon />
+          </Link>
         </Button>
         <Button className={testBtn} variant="contained">
-          Test Yourself
+          <Link to="/testyourself">Test Yourself</Link>
         </Button>
       </Toolbar>
     </AppBar>
