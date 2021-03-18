@@ -1,7 +1,7 @@
 import { Button, Container, Grid, Paper, TextField } from "@material-ui/core";
 import React from "react";
-import InputForm from "../../components/form/InputForm";
-import IntroText from "../../components/intro-text/InrtoText";
+import InputForm from "../../form/InputForm";
+import IntroText from "../../intro-text/InrtoText";
 import { useStyles } from "./HomeStyle";
 
 const Home = () => {

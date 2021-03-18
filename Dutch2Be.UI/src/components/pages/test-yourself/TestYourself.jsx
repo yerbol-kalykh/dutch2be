@@ -1,8 +1,8 @@
 import { Container } from "@material-ui/core";
 import React from "react";
 // components
-import IntroText from "../../components/intro-text/InrtoText";
-import QuizBox from "../../components/test-yourself/QuizBox";
+import IntroText from "../../intro-text/InrtoText";
+import QuizBox from "./quiz-box/QuizBox";
 // style
 import { useStyles } from "./TestyourselfStyle";
 
