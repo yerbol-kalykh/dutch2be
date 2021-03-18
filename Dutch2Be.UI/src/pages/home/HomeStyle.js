@@ -5,7 +5,7 @@ export const useStyles = makeStyles((theme) =>
     mainContainer: {
       padding: "10vh 10vw",
       minHeight: "80vh",
-      border: "1px solid blue",
+      // border: "1px solid blue",
     },
 
     boxContainer: {

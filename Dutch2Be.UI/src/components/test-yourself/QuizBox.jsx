@@ -2,34 +2,30 @@ import { Button, Container, Grid, Paper } from "@material-ui/core";
 import React from "react";
 import { useStyles } from "./QuizBoxStyle";
 
-const TestYourself = () => {
+const QuizBox = () => {
   const {
-    container,
-    containerGrid_QuizBoz,
-    basicStyle_QuizItem,
-    word,
+    boxContainer,
+    inputContainer,
+    respondingArticle,
+    articleBtn,
   } = useStyles();
+
   return (
-    <Container className={container}>
-      <Grid container className={containerGrid_QuizBoz}>
-        <Grid item container xs={6}>
-          <Grid item xs={12}>
-            <Button variant="contained" className={basicStyle_QuizItem}>
-              De
-            </Button>
-          </Grid>
-          <Grid item xs={12}>
-            <Button variant="contained" className={basicStyle_QuizItem}>
-              Het
-            </Button>
-          </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Paper className={`${basicStyle_QuizItem} ${word}`}>word</Paper>
-        </Grid>
+    <Grid container className={boxContainer}>
+      <Grid item container xs={6} className={inputContainer}>
+        <Button variant="contained" className={articleBtn}>
+          De
+        </Button>
+        <Button variant="contained" className={articleBtn}>
+          Het
+        </Button>
       </Grid>
-    </Container>
+
+      <Grid item xs={6}>
+        <Paper className={respondingArticle}>word</Paper>
+      </Grid>
+    </Grid>
   );
 };
 
-export default TestYourself;
+export default QuizBox;
