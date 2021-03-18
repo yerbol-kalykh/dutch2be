@@ -30,23 +30,6 @@ export const useStyles = makeStyles((theme) =>
       // border: "1px solid silver",
     },
 
-    inputDiv: {
-      width: "90%",
-      height: "60%",
-      // border: "1px solid red",
-      display: "flex",
-    },
-
-    input: {
-      width: "100%",
-      marginTop: "auto",
-    },
-
-    submitBtn: {
-      width: "90%",
-      height: "40%",
-    },
-
     waitingResponse: {
       background: "grey",
     },

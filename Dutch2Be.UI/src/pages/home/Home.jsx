@@ -1,5 +1,6 @@
 import { Button, Container, Grid, Paper, TextField } from "@material-ui/core";
 import React from "react";
+import InputForm from "../../components/form/InputForm";
 import IntroText from "../../components/intro-text/InrtoText";
 import { useStyles } from "./HomeStyle";
 
@@ -7,15 +8,12 @@ const Home = () => {
   const {
     mainContainer,
     boxContainer,
-    inputDiv,
     respondingArticle,
     center,
     waitingResponse,
     de,
     het,
     inputContainer,
-    submitBtn,
-    input,
   } = useStyles();
 
   return (
@@ -34,21 +32,7 @@ const Home = () => {
         </Grid>
 
         <Grid item xs={6} className={inputContainer}>
-          <div className={inputDiv}>
-            <TextField
-              required
-              multiline={true}
-              // variant="outlined"
-              color="primary"
-              size="medium"
-              label="woord"
-              className={input}
-            />
-          </div>
-
-          <Button className={submitBtn} variant="contained">
-            Submit
-          </Button>
+          <InputForm />
         </Grid>
       </Grid>
     </Container>
