@@ -34,7 +34,7 @@ namespace Dutch2Be.Application.Words.Queries.GetRandomWords
                     .AsNoTracking()
                     .ProjectTo<WordDto>(_mapper.ConfigurationProvider)
                     .OrderBy(w => Guid.NewGuid())
-                    .Take(request.NoOfWords % MaxNoOfWords)
+                    .Take(Math.Min(request.NoOfWords,MaxNoOfWords))
                     .ToListAsync(cancellationToken);
         }
     }
