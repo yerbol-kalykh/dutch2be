@@ -4,6 +4,7 @@ import { AppContext } from "../../../providers/AppContext";
 import InputForm from "../../form/InputForm";
 import IntroText from "../../intro-text/InrtoText";
 import { useStyles } from "./HomeStyle";
+import clsx from "clsx";
 
 const Home = () => {
   const { article, word } = useContext(AppContext);
@@ -11,41 +12,55 @@ const Home = () => {
     mainContainer,
     boxContainer,
     respondingArticle,
-    center,
     waitingResponse,
     de,
     het,
     inputContainer,
+    flexCenter,
+    noArticle,
+    wrongArticle,
   } = useStyles();
 
-  const articleBox = useCallback(() => {
+  const styleArticle = useCallback(() => {
+    switch (article) {
+      case "de":
+        return de;
+      case "het":
+        return het;
+      case "_":
+        return noArticle;
+      case "no such word!":
+        return wrongArticle;
+      default:
+        return waitingResponse;
+    }
+  }, [article, de, het, noArticle, wrongArticle, waitingResponse]);
+
+  const displayArticleBox = useCallback(() => {
     return (
       <Grid item xs={6}>
-        <Paper
-          className={`${center} ${respondingArticle} ${
-            true ? waitingResponse : true ? de : het
-          }`}
-        >
+        <Paper className={clsx(flexCenter, respondingArticle, styleArticle())}>
           {article ? article + " " + word : "?"}
         </Paper>
       </Grid>
     );
-  }, [article, waitingResponse, de, het, respondingArticle, center, word]);
+  }, [word, article, flexCenter, styleArticle, respondingArticle]);
 
   // useEffect(() => {
   //   articleBox();
   // }, [articleBox, article]);
 
   useEffect(() => {
-    console.log(`word: ${word}\narticle: ${article}`);
-  }, [word, article]);
+    // console.log(`word: ${word}\narticle: ${article}`);
+    styleArticle();
+  }, [styleArticle]);
 
   return (
     <Container className={mainContainer}>
       <IntroText content="Type a word (Noun) and submit to know whether it takes (De | Het)" />
 
       <Grid container className={boxContainer}>
-        {articleBox()}
+        {displayArticleBox()}
 
         <Grid item xs={6} className={inputContainer}>
           <InputForm />

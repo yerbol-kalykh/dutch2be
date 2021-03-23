@@ -14,12 +14,24 @@ export const useStyles = makeStyles((theme) =>
       // border: "1px solid blue",
     },
 
-    respondingArticle: {
+    flexCenter: {
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
-      fontSize: "7vw",
-      height: "100%",
+      // flexWrap: "wrap",
+      // border: "1px dashed black",
+    },
+
+    respondingArticle: {
+      fontSize: "5vw",
+      overflow: "auto",
+      minHeight: "50vh",
+      maxHeight: "50vh",
+      minWidth: "40vw",
+      maxWidth: "40vw",
+      overflowWrap: "word-wrap",
+      padding: ".5vh 1vw",
+      textAlign: "center",
     },
 
     inputContainer: {
@@ -40,6 +52,14 @@ export const useStyles = makeStyles((theme) =>
 
     het: {
       background: "purple",
+    },
+
+    noArticle: {
+      background: "#777",
+    },
+
+    wrongArticle: {
+      background: "orange",
     },
   })
 );

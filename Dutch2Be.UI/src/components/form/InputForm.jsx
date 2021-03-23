@@ -1,20 +1,18 @@
 import { TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
+// mocked
+import { data } from "../../mocked-data";
 // context
 import { AppContext } from "../../providers/AppContext";
-// hooks
-import { useHttpClient } from "../../hooks/http-hook";
 // form validation
 import { validationSchema } from "./FormValidation";
 // style
 import { useStyles } from "./InputFormStyle";
-// mocked
-import { data } from "../../mocked-data";
 
 const InputForm = () => {
-  const { word, article, setWord, setArticle } = useContext(AppContext);
+  const { word, setWord, setArticle } = useContext(AppContext);
   // const { sendRequest } = useHttpClient();
 
   const onSubmit = async (values, { resetForm, setSubmitting }) => {
@@ -23,7 +21,7 @@ const InputForm = () => {
 
     const word = values.word;
     const inputWord = data.find((obj) => obj.value === word);
-    setArticle(inputWord ? inputWord.article : "wrong word!");
+    setArticle(inputWord ? inputWord.article : "no such word!");
 
     // try {
     //   const fetchArticle = await sendRequest(
