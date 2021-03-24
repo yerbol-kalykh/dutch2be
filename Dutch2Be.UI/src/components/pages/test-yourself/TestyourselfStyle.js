@@ -5,7 +5,53 @@ export const useStyles = makeStyles((theme) =>
     mainContainer: {
       padding: "10vh 10vw",
       minHeight: "80vh",
+      textAlign: "center",
+
       // border: "1px solid blue",
+    },
+
+    resultsContainer: {
+      border: "1px dashed black",
+      fontWeight: "bold",
+      margin: "1vh 0 0",
+      padding: "3vh 1vw",
+      background: "#333",
+      color: "#bbb",
+      borderRadius: "4px",
+      fontSize: "3vw",
+      minWidth: "400px",
+      // display: "flex",
+      // justifyContent: "space-between",
+    },
+
+    resultsColumn: {
+      border: "1px dashed red",
+      padding: "1vh 1vw",
+      textAlign: "left",
+      borderRadius: "4px",
+      fontSize: "2vw",
+
+      // display: "flex",
+      // justifyContent: "space-evenly",
+    },
+
+    correct: {
+      background: "green",
+    },
+
+    incorrect: {
+      background: "maroon",
+    },
+
+    res: {
+      color: "#000",
+      // border: "1px dashed #000",
+      marginLeft: "3vw",
+      padding: ".5vh 1vw",
+      fontWeight: "bold",
+      background: "#aaa",
+      borderRadius: "10px",
+      // fontSize: "3vw",
     },
   })
 );
