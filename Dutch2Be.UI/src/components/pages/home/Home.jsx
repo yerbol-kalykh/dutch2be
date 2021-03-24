@@ -38,7 +38,7 @@ const Home = () => {
 
   const displayArticleBox = useCallback(() => {
     return (
-      <Grid item xs={6}>
+      <Grid item xs={12} md={6}>
         <Paper className={clsx(flexCenter, respondingArticle, styleArticle())}>
           {article ? article + " " + word : "?"}
         </Paper>
@@ -62,7 +62,7 @@ const Home = () => {
       <Grid container className={boxContainer}>
         {displayArticleBox()}
 
-        <Grid item xs={6} className={inputContainer}>
+        <Grid item xs={12} md={6} className={inputContainer}>
           <InputForm />
         </Grid>
       </Grid>

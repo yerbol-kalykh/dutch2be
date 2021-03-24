@@ -27,11 +27,11 @@ export const useStyles = makeStyles((theme) =>
       overflow: "auto",
       minHeight: "50vh",
       maxHeight: "50vh",
-      minWidth: "40vw",
-      maxWidth: "40vw",
+      minWidth: "30vw",
       overflowWrap: "word-wrap",
       padding: ".5vh 1vw",
       textAlign: "center",
+      margin: "0 0 1vh",
     },
 
     inputContainer: {

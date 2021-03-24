@@ -21,7 +21,7 @@ const InputForm = () => {
 
     const word = values.word;
     const inputWord = data.find((obj) => obj.value === word);
-    setArticle(inputWord ? inputWord.article : "no such word!");
+    setArticle(inputWord ? inputWord.article : `no such word!`);
 
     // try {
     //   const fetchArticle = await sendRequest(
@@ -55,12 +55,25 @@ const InputForm = () => {
       onSubmit={onSubmit}
     >
       {(props) => {
-        // console.log(props);
+        console.log(props);
+        const getFieldProps = (props) => {
+          return {
+            ...props,
+            onBlur: (...args) => {
+              props.handleBlur(...args);
+              props.onBlur && props.onBlur(...args);
+            },
+            // ... other props
+          };
+        };
         return (
           <Form className={form}>
             <ErrorMessage
               name="word"
-              render={(msg) => <div className={errMsg}>{msg}</div>}
+              render={(msg) => {
+                console.log(msg);
+                return <div className={errMsg}>{msg}</div>;
+              }}
             />
 
             <div className={inputDiv}>
@@ -81,6 +94,7 @@ const InputForm = () => {
             <Button
               type="submit"
               disabled={!props.isValid || props.isSubmitting}
+              // disabled={props.isSubmitting}
               className={submitBtn}
               variant="contained"
             >

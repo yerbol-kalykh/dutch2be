@@ -20,16 +20,18 @@ export const useStyles = makeStyles((theme) =>
     submitBtn: {
       width: "90%",
       height: "40%",
+      margin: "0 0 1vh",
     },
 
     errMsg: {
       color: "red",
       fontSize: "1.5rem",
       background: "#444",
-      padding: "2vh 1vw",
+      padding: "1vh 2vw",
       textAlign: "center",
       width: "90%",
-      borderRadius: "10px",
+      borderRadius: "4px",
+      margin: "2vh auto 0",
     },
 
     inputDiv: {
