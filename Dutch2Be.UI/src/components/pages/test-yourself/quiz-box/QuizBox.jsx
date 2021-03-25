@@ -5,24 +5,39 @@ import { useStyles } from "./QuizBoxStyle";
 const QuizBox = () => {
   const {
     boxContainer,
-    inputContainer,
-    respondingArticle,
+    answer,
     articleBtn,
+    answerBtnsGrid,
+    wordGrid,
   } = useStyles();
 
   return (
     <Grid container className={boxContainer}>
-      <Grid item container xs={6} className={inputContainer}>
-        <Button variant="contained" className={articleBtn}>
-          De
-        </Button>
-        <Button variant="contained" className={articleBtn}>
-          Het
-        </Button>
+      <Grid item container xs={12} className={wordGrid}>
+        <Paper className={answer}>word</Paper>
       </Grid>
 
-      <Grid item xs={6}>
-        <Paper className={respondingArticle}>word</Paper>
+      <Grid item container xs={12}>
+        <Grid item xs={3} className={answerBtnsGrid}>
+          <Button variant="contained" className={articleBtn}>
+            De
+          </Button>
+        </Grid>
+        <Grid item xs={3} className={answerBtnsGrid}>
+          <Button variant="contained" className={articleBtn}>
+            Het
+          </Button>
+        </Grid>
+        <Grid item xs={3} className={answerBtnsGrid}>
+          <Button variant="contained" className={articleBtn}>
+            None
+          </Button>
+        </Grid>
+        <Grid item xs={3} className={answerBtnsGrid}>
+          <Button variant="contained" className={articleBtn}>
+            Not a Dutch word!
+          </Button>
+        </Grid>
       </Grid>
     </Grid>
   );

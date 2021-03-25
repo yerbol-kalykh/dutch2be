@@ -19,7 +19,7 @@ const TestYourself = () => {
 
   return (
     <Container className={mainContainer}>
-      <IntroText content="Select the correct article (De | Het) according to the displayed word:" />
+      <IntroText content="Select the correct answer according to the displayed word" />
 
       <QuizBox />
 
