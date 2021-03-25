@@ -1,7 +1,7 @@
 import { Container, Grid } from "@material-ui/core";
 import React from "react";
 // components
-import IntroText from "../../intro-text/InrtoText";
+import IntroText from "../../shared/intro-text/IntroText";
 import QuizBox from "./quiz-box/QuizBox";
 // style
 import { useStyles } from "./TestyourselfStyle";
