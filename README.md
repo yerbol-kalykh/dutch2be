@@ -12,4 +12,4 @@ To use `dotnet-ef` for your migrations please add the following flags to your co
 
 For example, to add a new migration from the root folder:
 
- `dotnet ef migrations add "SampleMigration" --project src\Dutch2Be.Infrastructure --startup-project src\Dutch2Be.Api --output-dir Persistence\Migrations`
+ `dotnet ef migrations add "SampleMigration" --project src\Dutch2Be.Infrastructure --startup-project src\Dutch2Be.Api --output-dir Persistence\Migrations` 
