@@ -16,14 +16,29 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonarcloud-dutch2be'
+    organization: 'sarbonatech-azdo-org'
+    scannerMode: 'MSBuild'
+    projectKey: 'SarbonaTech_Dutch2Be'
+    projectName: 'Dutch2Be'
+
 - task: UseDotNet@2
   inputs:
     packageType: 'sdk'
     version: '5.0.x'
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
-
 - task: DotNetCoreCLI@2
   inputs:
     command: 'test'
     projects: 'tests/**/*.csproj'
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '2.2.x'
+- task: SonarCloudAnalyze@1
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
