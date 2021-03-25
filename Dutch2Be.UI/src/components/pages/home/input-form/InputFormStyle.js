@@ -20,7 +20,6 @@ export const useStyles = makeStyles((theme) =>
     submitBtn: {
       width: "90%",
       height: "40%",
-      margin: "0 0 1vh",
     },
 
     errMsg: {

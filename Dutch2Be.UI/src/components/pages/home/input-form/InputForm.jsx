@@ -2,9 +2,9 @@ import { TextField } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
-import { useHttpClient } from "../../hooks/http-hook";
+import { useHttpClient } from "../../../../hooks/http-hook";
 // context
-import { AppContext } from "../../providers/AppContext";
+import { AppContext } from "../../../../providers/AppContext";
 // form validation
 import { validationSchema } from "./FormValidation";
 // style
@@ -50,16 +50,7 @@ const InputForm = () => {
     >
       {(props) => {
         // console.log(props);
-        const getFieldProps = (props) => {
-          return {
-            ...props,
-            onBlur: (...args) => {
-              props.handleBlur(...args);
-              props.onBlur && props.onBlur(...args);
-            },
-            // ... other props
-          };
-        };
+
         return (
           <Form className={form}>
             <ErrorMessage

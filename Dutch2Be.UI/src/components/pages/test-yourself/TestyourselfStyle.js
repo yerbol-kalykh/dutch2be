@@ -6,12 +6,10 @@ export const useStyles = makeStyles((theme) =>
       padding: "10vh 10vw",
       minHeight: "80vh",
       textAlign: "center",
-
       // border: "1px solid blue",
     },
 
     resultsContainer: {
-      border: "1px dashed black",
       fontWeight: "bold",
       margin: "1vh 0 0",
       padding: "3vh 1vw",
@@ -20,8 +18,6 @@ export const useStyles = makeStyles((theme) =>
       borderRadius: "4px",
       fontSize: "3vw",
       minWidth: "400px",
-      // display: "flex",
-      // justifyContent: "space-between",
     },
 
     resultsColumn: {
@@ -30,9 +26,6 @@ export const useStyles = makeStyles((theme) =>
       textAlign: "left",
       borderRadius: "4px",
       fontSize: "2vw",
-
-      // display: "flex",
-      // justifyContent: "space-evenly",
     },
 
     correct: {
@@ -51,7 +44,6 @@ export const useStyles = makeStyles((theme) =>
       fontWeight: "bold",
       background: "#aaa",
       borderRadius: "10px",
-      // fontSize: "3vw",
     },
   })
 );

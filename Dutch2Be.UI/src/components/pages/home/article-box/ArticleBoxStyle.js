@@ -13,13 +13,12 @@ export const useStyles = makeStyles((theme) =>
     respondingArticle: {
       fontSize: "5vw",
       overflow: "auto",
-      minHeight: "50vh",
+      minHeight: "30vh",
       maxHeight: "50vh",
       minWidth: "30vw",
       overflowWrap: "word-wrap",
       padding: ".5vh 1vw",
       textAlign: "center",
-      margin: "0 0 1vh",
     },
 
     waitingResponse: {
