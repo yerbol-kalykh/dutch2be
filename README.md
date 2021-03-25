@@ -1,7 +1,6 @@
 # Dutch2Be
 Learn Dutch fast and easy? Is that even possible?
 
-
 ### Database Migrations
 
 To use `dotnet-ef` for your migrations please add the following flags to your command (values assume you are executing from repository root)
