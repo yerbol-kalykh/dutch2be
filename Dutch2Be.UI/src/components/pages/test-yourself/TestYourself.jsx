@@ -14,7 +14,7 @@ const TestYourself = () => {
     resultsColumn,
     correct,
     incorrect,
-    res
+    res,
   } = useStyles();
 
   return (
@@ -29,11 +29,11 @@ const TestYourself = () => {
         </Grid>
         <Grid item container xs={9}>
           <Grid item xs={5} className={clsx(resultsColumn, correct)}>
-            Correct <span className={res} >0</span>
+            Correct <span className={res}>0</span>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={5} className={clsx(resultsColumn, incorrect)}>
-            Incorrect <span className={res} >0</span>
+            Incorrect <span className={res}>0</span>
           </Grid>
         </Grid>
       </Grid>

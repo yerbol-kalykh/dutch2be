@@ -21,13 +21,13 @@ const Home = () => {
     wrongArticle,
   } = useStyles();
 
-  const styleArticle = useCallback(() => {
+  const styleArticleBox = useCallback(() => {
     switch (article) {
-      case "de":
+      case "De":
         return de;
-      case "het":
+      case "Het":
         return het;
-      case "_":
+      case "None":
         return noArticle;
       case "no such word!":
         return wrongArticle;
@@ -39,25 +39,22 @@ const Home = () => {
   const displayArticleBox = useCallback(() => {
     return (
       <Grid item xs={12} md={6}>
-        <Paper className={clsx(flexCenter, respondingArticle, styleArticle())}>
+        <Paper
+          className={clsx(flexCenter, respondingArticle, styleArticleBox())}
+        >
           {article ? article + " " + word : "?"}
         </Paper>
       </Grid>
     );
-  }, [word, article, flexCenter, styleArticle, respondingArticle]);
-
-  // useEffect(() => {
-  //   articleBox();
-  // }, [articleBox, article]);
+  }, [word, article, flexCenter, styleArticleBox, respondingArticle]);
 
   useEffect(() => {
-    // console.log(`word: ${word}\narticle: ${article}`);
-    styleArticle();
-  }, [styleArticle]);
+    styleArticleBox();
+  }, [styleArticleBox]);
 
   return (
     <Container className={mainContainer}>
-      <IntroText content="Type a word (Noun) and submit to know whether it takes (De | Het)" />
+      <IntroText content="Type a word (a Noun in single form) and submit to know whether it takes (De, Het or None)" />
 
       <Grid container className={boxContainer}>
         {displayArticleBox()}
