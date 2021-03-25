@@ -24,6 +24,5 @@ namespace Dutch2Be.Application.UnitTests.Common.Mappings
         {
             _configuration.AssertConfigurationIsValid();
         }
-
     }
 }
