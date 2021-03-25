@@ -1,10 +1,12 @@
 import { Button, Container, Grid, Paper } from "@material-ui/core";
-import React from "react";
+import React, { useContext } from "react";
 import { useStyles } from "./QuizBoxStyle";
 import clsx from "clsx";
 import { useHttpClient } from "../../../../hooks/http-hook";
+import { AppContext } from "../../../../providers/AppContext";
 
 const QuizBox = () => {
+  // style
   const {
     boxContainer,
     display,
@@ -17,15 +19,19 @@ const QuizBox = () => {
     wrongArticle,
   } = useStyles();
 
+  // context
+  const { fetchedQuizArr, setFetchedQuizArr } = useContext(AppContext);
+
+  // hooks
   const { sendRequest } = useHttpClient();
 
   const clickAnswerBtn = async () => {
     try {
-      const fetchQuizArr = await sendRequest(`/api/words`, "GET", null, {
+      const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
         "Content-Type": "json/application",
       });
 
-      console.log(fetchQuizArr);
+      console.log(fetchedArr);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +41,7 @@ const QuizBox = () => {
     <Grid container className={boxContainer}>
       <Grid item container xs={12} className={displayGrid}>
         <Paper elevation={0} className={display}>
-          word
+          woord
         </Paper>
       </Grid>
 
