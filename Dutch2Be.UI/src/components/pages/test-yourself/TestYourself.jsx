@@ -53,6 +53,8 @@ const TestYourself = () => {
 
   const start = useCallback(async () => {
     setIsStarted(true);
+    setCorrectScore(0);
+    setIncorrectScore(0);
     const arr = await fetchQuizArr();
 
     setFetchedQuizArr(arr);
@@ -63,6 +65,8 @@ const TestYourself = () => {
     setQuizWord,
     quizWordCounter,
     fetchQuizArr,
+    setCorrectScore,
+    setIncorrectScore,
   ]);
 
   const displayWordsCount = useCallback(() => {
