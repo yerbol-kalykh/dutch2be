@@ -1,5 +1,5 @@
 import { Button, Container, Grid, Paper } from "@material-ui/core";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useStyles } from "./QuizBoxStyle";
 import clsx from "clsx";
 import { useHttpClient } from "../../../../hooks/http-hook";
@@ -24,33 +24,53 @@ const QuizBox = () => {
     isStarted,
     setIsStarted,
     setFetchedQuizArr,
-    fetchedArr,
     quizWord,
     setQuizWord,
     fetchedQuizArr,
+    quizWordCounter,
+    setQuizWordCounter,
+    isCorrect,
+    setIsCorrect,
+    correctCounter,
+    setCorrectCounter,
+    incorrectCounter,
+    setIncorrectCounter,
   } = useContext(AppContext);
 
   // hooks
   const { sendRequest } = useHttpClient();
 
-  const clickAnswerBtn = async () => {
-    // try {
-    //   const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
-    //     "Content-Type": "json/application",
-    //   });
-    //   setFetchedQuizArr(fetchedArr);
-    //   console.log(fetchedArr);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  const clickAnswerBtn = async (e) => {
+    const clickedArticle = e.target.innerText || e.target.textContent;
+    // check answer
+
+    if (fetchedQuizArr[quizWordCounter].article === clickedArticle) {
+      setCorrectCounter((pre) => pre + 1);
+    } else {
+      setIncorrectCounter((pre) => pre + 1);
+    }
+    console.log(fetchedQuizArr[quizWordCounter].article);
+    setIsCorrect(fetchedQuizArr[quizWordCounter].article === clickedArticle);
+
+    // update counter
+    // update quiz word
+
+    // reset
   };
+
+  // useEffect(() => {
+  //   console.log(isCorrect);
+  //   // reset
+  // }, [isCorrect]);
+
+  // useEffect(() => {}, []);
 
   return (
     <Grid container className={boxContainer}>
       <Grid item container xs={12} className={displayGrid}>
         <Paper elevation={0} className={display}>
           {(fetchedQuizArr && fetchedQuizArr[0] && fetchedQuizArr[0].value) ||
-            "woord"}
+            "Please click start"}
         </Paper>
       </Grid>
 
@@ -59,7 +79,8 @@ const QuizBox = () => {
           <Button
             variant="contained"
             className={clsx(articleBtn, de)}
-            onClick={clickAnswerBtn}
+            onClick={(e) => clickAnswerBtn(e)}
+            disabled={!isStarted}
           >
             De
           </Button>
@@ -68,7 +89,8 @@ const QuizBox = () => {
           <Button
             variant="contained"
             className={clsx(articleBtn, het)}
-            onClick={clickAnswerBtn}
+            onClick={(e) => clickAnswerBtn(e)}
+            disabled={!isStarted}
           >
             Het
           </Button>
@@ -77,7 +99,8 @@ const QuizBox = () => {
           <Button
             variant="contained"
             className={clsx(articleBtn, noArticle)}
-            onClick={clickAnswerBtn}
+            onClick={(e) => clickAnswerBtn(e)}
+            disabled={!isStarted}
           >
             None
           </Button>
@@ -86,7 +109,8 @@ const QuizBox = () => {
           <Button
             variant="contained"
             className={clsx(articleBtn, wrongArticle)}
-            onClick={clickAnswerBtn}
+            onClick={(e) => clickAnswerBtn(e)}
+            disabled={!isStarted}
           >
             Not a Dutch word!
           </Button>

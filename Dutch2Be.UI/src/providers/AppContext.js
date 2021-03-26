@@ -9,6 +9,10 @@ export const AppContextProvider = ({ children }) => {
   const [fetchedQuizArr, setFetchedQuizArr] = useState([]);
   const [isStarted, setIsStarted] = useState(false);
   const [quizWord, setQuizWord] = useState("");
+  const [quizWordCounter, setQuizWordCounter] = useState(0);
+  const [isCorrect, setIsCorrect] = useState(false);
+  const [correctCounter, setCorrectCounter] = useState(0);
+  const [incorrectCounter, setIncorrectCounter] = useState(0);
 
   const value = {
     word,
@@ -21,6 +25,14 @@ export const AppContextProvider = ({ children }) => {
     setIsStarted,
     quizWord,
     setQuizWord,
+    quizWordCounter,
+    setQuizWordCounter,
+    isCorrect,
+    setIsCorrect,
+    correctCounter,
+    setCorrectCounter,
+    incorrectCounter,
+    setIncorrectCounter,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

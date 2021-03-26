@@ -14,12 +14,17 @@ const TestYourself = () => {
   const {
     isStarted,
     setIsStarted,
+    fetchedQuizArr,
     setFetchedQuizArr,
-    fetchedArr,
     quizWord,
     setQuizWord,
+    quizWordCounter,
+    setQuizWordCounter,
+    correctCounter,
+    setCorrectCounter,
+    incorrectCounter,
+    setIncorrectCounter,
   } = useContext(AppContext);
-  const [wordCounter, setWordCounter] = useState(0);
   // hook
   const { sendRequest } = useHttpClient();
 
@@ -43,10 +48,10 @@ const TestYourself = () => {
         "Content-Type": "json/application",
       });
       setFetchedQuizArr(fetchedArr);
-      setQuizWord(fetchedArr[wordCounter].value);
-      setWordCounter((pre) => pre + 1);
+      setQuizWord(fetchedArr[quizWordCounter].value);
+      // setQuizWordCounter((pre) => pre + 1);
 
-      console.log(fetchedArr);
+      // console.log(fetchedArr);
     } catch (error) {
       console.log(error);
     }
@@ -56,10 +61,13 @@ const TestYourself = () => {
     setFetchedQuizArr,
     sendRequest,
     setQuizWord,
-    wordCounter,
+    quizWordCounter,
+    // setQuizWordCounter,
   ]);
 
-  // useEffect(() => {}, []);
+  // useEffect(() => {
+  //   console.log(fetchedQuizArr);
+  // }, [fetchedQuizArr]);
 
   return (
     <Container className={mainContainer}>
@@ -69,7 +77,7 @@ const TestYourself = () => {
           {!isStarted ? "Start Quiz" : "Restart"}
         </Button>
         <Paper className={count}>
-          {1} / {fetchedArr ? fetchedArr.length : 0}
+          {1} / {fetchedQuizArr ? fetchedQuizArr.length : 0}
         </Paper>
       </div>
 
@@ -81,11 +89,11 @@ const TestYourself = () => {
         </Grid>
         <Grid item container xs={9}>
           <Grid item xs={5} className={clsx(resultsColumn, correct)}>
-            Correct <span className={res}>0</span>
+            Correct <span className={res}> {correctCounter} </span>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={5} className={clsx(resultsColumn, incorrect)}>
-            Incorrect <span className={res}>0</span>
+            Incorrect <span className={res}> {incorrectCounter} </span>
           </Grid>
         </Grid>
       </Grid>
