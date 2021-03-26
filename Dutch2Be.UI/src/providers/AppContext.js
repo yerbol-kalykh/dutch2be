@@ -11,8 +11,8 @@ export const AppContextProvider = ({ children }) => {
   const [quizWord, setQuizWord] = useState("");
   const [quizWordCounter, setQuizWordCounter] = useState(0);
   const [isCorrect, setIsCorrect] = useState(false);
-  const [correctCounter, setCorrectCounter] = useState(0);
-  const [incorrectCounter, setIncorrectCounter] = useState(0);
+  const [correctScore, setCorrectScore] = useState(0);
+  const [incorrectScore, setIncorrectScore] = useState(0);
 
   const value = {
     word,
@@ -29,10 +29,10 @@ export const AppContextProvider = ({ children }) => {
     setQuizWordCounter,
     isCorrect,
     setIsCorrect,
-    correctCounter,
-    setCorrectCounter,
-    incorrectCounter,
-    setIncorrectCounter,
+    correctScore,
+    setCorrectScore,
+    incorrectScore,
+    setIncorrectScore,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

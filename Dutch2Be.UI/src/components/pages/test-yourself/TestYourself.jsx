@@ -20,10 +20,10 @@ const TestYourself = () => {
     setQuizWord,
     quizWordCounter,
     setQuizWordCounter,
-    correctCounter,
-    setCorrectCounter,
-    incorrectCounter,
-    setIncorrectCounter,
+    correctScore,
+    setCorrectScore,
+    incorrectScore,
+    setIncorrectScore,
   } = useContext(AppContext);
   // hook
   const { sendRequest } = useHttpClient();
@@ -40,30 +40,36 @@ const TestYourself = () => {
     count,
   } = useStyles();
 
-  const start = useCallback(async () => {
-    setIsStarted(!isStarted);
-
+  const fetchQuizArr = useCallback(async () => {
     try {
       const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
         "Content-Type": "json/application",
       });
-      setFetchedQuizArr(fetchedArr);
-      setQuizWord(fetchedArr[quizWordCounter].value);
-      // setQuizWordCounter((pre) => pre + 1);
-
-      // console.log(fetchedArr);
+      return fetchedArr;
     } catch (error) {
       console.log(error);
     }
+  }, [sendRequest]);
+
+  const start = useCallback(async () => {
+    setIsStarted(true);
+    const arr = await fetchQuizArr();
+
+    setFetchedQuizArr(arr);
+    setQuizWord(arr[quizWordCounter].value);
   }, [
     setIsStarted,
-    isStarted,
     setFetchedQuizArr,
-    sendRequest,
     setQuizWord,
     quizWordCounter,
-    // setQuizWordCounter,
+    fetchQuizArr,
   ]);
+
+  const displayWordsCount = useCallback(() => {
+    return `${isStarted ? quizWordCounter + 1 : 0} / ${
+      fetchedQuizArr?.length || 0
+    }`;
+  }, [quizWordCounter, fetchedQuizArr, isStarted]);
 
   // useEffect(() => {
   //   console.log(fetchedQuizArr);
@@ -76,9 +82,7 @@ const TestYourself = () => {
         <Button className={startBtn} onClick={start}>
           {!isStarted ? "Start Quiz" : "Restart"}
         </Button>
-        <Paper className={count}>
-          {1} / {fetchedQuizArr ? fetchedQuizArr.length : 0}
-        </Paper>
+        <Paper className={count}>{displayWordsCount()}</Paper>
       </div>
 
       <QuizBox />
@@ -89,11 +93,11 @@ const TestYourself = () => {
         </Grid>
         <Grid item container xs={9}>
           <Grid item xs={5} className={clsx(resultsColumn, correct)}>
-            Correct <span className={res}> {correctCounter} </span>
+            Correct <span className={res}> {correctScore} </span>
           </Grid>
           <Grid item xs={1}></Grid>
           <Grid item xs={5} className={clsx(resultsColumn, incorrect)}>
-            Incorrect <span className={res}> {incorrectCounter} </span>
+            Incorrect <span className={res}> {incorrectScore} </span>
           </Grid>
         </Grid>
       </Grid>

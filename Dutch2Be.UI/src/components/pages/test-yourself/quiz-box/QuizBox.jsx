@@ -1,5 +1,5 @@
 import { Button, Container, Grid, Paper } from "@material-ui/core";
-import React, { useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect } from "react";
 import { useStyles } from "./QuizBoxStyle";
 import clsx from "clsx";
 import { useHttpClient } from "../../../../hooks/http-hook";
@@ -31,46 +31,73 @@ const QuizBox = () => {
     setQuizWordCounter,
     isCorrect,
     setIsCorrect,
-    correctCounter,
-    setCorrectCounter,
-    incorrectCounter,
-    setIncorrectCounter,
+    correctScore,
+    setCorrectScore,
+    incorrectScore,
+    setIncorrectScore,
   } = useContext(AppContext);
 
   // hooks
   const { sendRequest } = useHttpClient();
 
-  const clickAnswerBtn = async (e) => {
-    const clickedArticle = e.target.innerText || e.target.textContent;
-    // check answer
+  const clickAnswerBtn = useCallback(
+    async (e) => {
+      const clickedArticle = e.target.innerText || e.target.textContent;
 
-    if (fetchedQuizArr[quizWordCounter].article === clickedArticle) {
-      setCorrectCounter((pre) => pre + 1);
-    } else {
-      setIncorrectCounter((pre) => pre + 1);
-    }
-    console.log(fetchedQuizArr[quizWordCounter].article);
-    setIsCorrect(fetchedQuizArr[quizWordCounter].article === clickedArticle);
+      // check answer
+      // setIsCorrect(fetchedQuizArr[quizWordCounter].article === clickedArticle);
 
-    // update counter
-    // update quiz word
+      //update score
+      if (fetchedQuizArr[quizWordCounter].article === clickedArticle) {
+        setCorrectScore((pre) => pre + 1);
+      } else {
+        setIncorrectScore((pre) => pre + 1);
+      }
 
-    // reset
-  };
+      // update counter
+      setQuizWordCounter((pre) => pre + 1);
 
-  // useEffect(() => {
-  //   console.log(isCorrect);
-  //   // reset
-  // }, [isCorrect]);
+      // update quiz word
+      setQuizWord(
+        quizWordCounter < 9
+          ? fetchedQuizArr[quizWordCounter + 1].value
+          : "Wanna play more? start again :D"
+      );
 
-  // useEffect(() => {}, []);
+      // alert the answer status
+      // end quiz
+      if (quizWordCounter > 9) {
+        setQuizWordCounter(0);
+        setIsStarted(false);
+      }
+    },
+    [
+      fetchedQuizArr,
+      quizWordCounter,
+      setCorrectScore,
+      setIncorrectScore,
+      // setIsCorrect,
+      setIsStarted,
+      setQuizWord,
+      setQuizWordCounter,
+    ]
+  );
+
+  const displayQuizWord = useCallback(() => {
+    return quizWord || "Click Start to play";
+  }, [quizWord]);
+
+  useEffect(() => {
+    console.log(quizWordCounter);
+    console.log(quizWord);
+    displayQuizWord();
+  }, [displayQuizWord, quizWord, quizWordCounter]);
 
   return (
     <Grid container className={boxContainer}>
       <Grid item container xs={12} className={displayGrid}>
         <Paper elevation={0} className={display}>
-          {(fetchedQuizArr && fetchedQuizArr[0] && fetchedQuizArr[0].value) ||
-            "Please click start"}
+          {displayQuizWord()}
         </Paper>
       </Grid>
 
@@ -80,7 +107,7 @@ const QuizBox = () => {
             variant="contained"
             className={clsx(articleBtn, de)}
             onClick={(e) => clickAnswerBtn(e)}
-            disabled={!isStarted}
+            disabled={!isStarted || quizWordCounter > 9}
           >
             De
           </Button>
@@ -90,7 +117,7 @@ const QuizBox = () => {
             variant="contained"
             className={clsx(articleBtn, het)}
             onClick={(e) => clickAnswerBtn(e)}
-            disabled={!isStarted}
+            disabled={!isStarted || quizWordCounter > 9}
           >
             Het
           </Button>
@@ -100,7 +127,7 @@ const QuizBox = () => {
             variant="contained"
             className={clsx(articleBtn, noArticle)}
             onClick={(e) => clickAnswerBtn(e)}
-            disabled={!isStarted}
+            disabled={!isStarted || quizWordCounter > 9}
           >
             None
           </Button>
@@ -110,7 +137,7 @@ const QuizBox = () => {
             variant="contained"
             className={clsx(articleBtn, wrongArticle)}
             onClick={(e) => clickAnswerBtn(e)}
-            disabled={!isStarted}
+            disabled={!isStarted || quizWordCounter > 9}
           >
             Not a Dutch word!
           </Button>
