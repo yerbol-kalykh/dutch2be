@@ -9,6 +9,24 @@ export const useStyles = makeStyles((theme) =>
       // border: "1px solid blue",
     },
 
+    startWrap: {
+      minWidth: "400px",
+    },
+    startBtn: {
+      border: "1px dashed #000",
+      width: "100%",
+      background: "cornflowerBlue",
+      color: "#000",
+      transition: "letterSpacing 1sec",
+      "&:hover": {
+        background: "linear-gradient(45deg, blue 30%, purple 90%)",
+        fontWeight: "bold",
+        letterSpacing: "1vw",
+        color: "#fff",
+      },
+    },
+    count: { background: "#777", padding: "1vh 0", color: "#fff" },
+
     resultsContainer: {
       fontWeight: "bold",
       margin: "1vh 0 0",

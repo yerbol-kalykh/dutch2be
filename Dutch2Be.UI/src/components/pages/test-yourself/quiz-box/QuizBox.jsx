@@ -26,22 +26,22 @@ const QuizBox = () => {
   const { sendRequest } = useHttpClient();
 
   const clickAnswerBtn = async () => {
-    try {
-      const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
-        "Content-Type": "json/application",
-      });
-
-      console.log(fetchedArr);
-    } catch (error) {
-      console.log(error);
-    }
+    // try {
+    //   const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
+    //     "Content-Type": "json/application",
+    //   });
+    //   setFetchedQuizArr(fetchedArr);
+    //   console.log(fetchedArr);
+    // } catch (error) {
+    //   console.log(error);
+    // }
   };
 
   return (
     <Grid container className={boxContainer}>
       <Grid item container xs={12} className={displayGrid}>
         <Paper elevation={0} className={display}>
-          woord
+          {/* {fetchedQuizArr[0].value} */}woord
         </Paper>
       </Grid>
 

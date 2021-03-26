@@ -1,13 +1,22 @@
-import { Container, Grid } from "@material-ui/core";
-import React from "react";
+import { Button, Container, Grid, Paper } from "@material-ui/core";
+import React, { useCallback, useContext, useEffect } from "react";
 // components
 import IntroText from "../../shared/intro-text/IntroText";
 import QuizBox from "./quiz-box/QuizBox";
 // style
 import { useStyles } from "./TestyourselfStyle";
 import clsx from "clsx";
+import { AppContext } from "../../../providers/AppContext";
+import { useHttpClient } from "../../../hooks/http-hook";
 
 const TestYourself = () => {
+  // context
+  const { isStarted, setIsStarted, setFetchedQuizArr, fetchedArr } = useContext(
+    AppContext
+  );
+  // hook
+  const { sendRequest } = useHttpClient();
+
   const {
     mainContainer,
     resultsContainer,
@@ -15,11 +24,41 @@ const TestYourself = () => {
     correct,
     incorrect,
     res,
+    startBtn,
+    startWrap,
+    count,
   } = useStyles();
+
+  const start = useCallback(async () => {
+    setIsStarted(!isStarted);
+
+    try {
+      const fetchedArr = await sendRequest(`/api/words`, "GET", null, {
+        "Content-Type": "json/application",
+      });
+      setFetchedQuizArr(fetchedArr);
+
+      console.log(fetchedArr);
+    } catch (error) {
+      console.log(error);
+    }
+  }, [setIsStarted, isStarted, setFetchedQuizArr, sendRequest]);
+
+  // useEffect(() => {
+  //   start();
+  // }, [start]);
 
   return (
     <Container className={mainContainer}>
       <IntroText content="Select the correct answer according to the displayed word" />
+      <div className={startWrap}>
+        <Button className={startBtn} onClick={start}>
+          {!isStarted ? "Start Quiz" : "Restart"}
+        </Button>
+        <Paper className={count}>
+          {1} / {fetchedArr?.length | 0}
+        </Paper>
+      </div>
 
       <QuizBox />
 
