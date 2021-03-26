@@ -64,7 +64,6 @@ const QuizBox = () => {
       // alert the answer status
       // end quiz
       if (quizWordCounter >= 9) {
-        // setQuizWordCounter(0);
         setIsStarted(false);
       }
     },
@@ -73,7 +72,6 @@ const QuizBox = () => {
       quizWordCounter,
       setCorrectScore,
       setIncorrectScore,
-      // setIsCorrect,
       setIsStarted,
       setQuizWord,
       setQuizWordCounter,
@@ -83,12 +81,6 @@ const QuizBox = () => {
   const displayQuizWord = useCallback(() => {
     return quizWord || "Click Start to play";
   }, [quizWord]);
-
-  useEffect(() => {
-    console.log(quizWordCounter);
-    console.log(quizWord);
-    displayQuizWord();
-  }, [displayQuizWord, quizWord, quizWordCounter]);
 
   return (
     <Grid container className={boxContainer}>

@@ -53,12 +53,15 @@ const TestYourself = () => {
 
   const start = useCallback(async () => {
     setIsStarted(true);
+    setQuizWordCounter(0);
     setCorrectScore(0);
     setIncorrectScore(0);
     const arr = await fetchQuizArr();
 
     setFetchedQuizArr(arr);
-    setQuizWord(arr[quizWordCounter].value);
+    console.log(arr);
+    setQuizWord(arr[quizWordCounter]?.value);
+    console.log(quizWord);
   }, [
     setIsStarted,
     setFetchedQuizArr,
@@ -67,6 +70,8 @@ const TestYourself = () => {
     fetchQuizArr,
     setCorrectScore,
     setIncorrectScore,
+    setQuizWordCounter,
+    quizWord,
   ]);
 
   const displayWordsCount = useCallback(() => {
@@ -78,6 +83,10 @@ const TestYourself = () => {
   // useEffect(() => {
   //   console.log(fetchedQuizArr);
   // }, [fetchedQuizArr]);
+
+  useEffect(() => {
+    isStarted && start();
+  }, [isStarted]);
 
   return (
     <Container className={mainContainer}>
