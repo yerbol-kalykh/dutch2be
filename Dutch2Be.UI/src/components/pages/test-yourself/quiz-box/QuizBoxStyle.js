@@ -37,7 +37,7 @@ export const useStyles = makeStyles((theme) =>
       minHeight: "8vh",
       transition: "background .5s, color .5s",
       textTransform: "none",
-      borderRadius: "50%",
+      // borderRadius: "50%",
       "&:hover": {
         color: "#fff",
       },
@@ -62,6 +62,7 @@ export const useStyles = makeStyles((theme) =>
     },
 
     wrongArticle: {
+      fontSize: "max(1.2vw, 10px)",
       "&:hover": {
         background: "orange",
       },
