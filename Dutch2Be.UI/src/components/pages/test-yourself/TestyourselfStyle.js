@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) =>
         color: "#fff",
       },
     },
-    count: { background: "#777", padding: "1vh 0", color: "#fff" },
+    count: { background: "#444", padding: "1vh 0", color: "#fff" },
 
     resultsContainer: {
       fontWeight: "bold",

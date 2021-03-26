@@ -8,7 +8,7 @@ export const AppContextProvider = ({ children }) => {
   // quiz page
   const [fetchedQuizArr, setFetchedQuizArr] = useState([]);
   const [isStarted, setIsStarted] = useState(false);
-  // const [state, setstate] = useState(initialState)
+  const [quizWord, setQuizWord] = useState("");
 
   const value = {
     word,
@@ -19,6 +19,8 @@ export const AppContextProvider = ({ children }) => {
     setFetchedQuizArr,
     isStarted,
     setIsStarted,
+    quizWord,
+    setQuizWord,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

@@ -1,5 +1,5 @@
 import { Button, Container, Grid, Paper } from "@material-ui/core";
-import React, { useCallback, useContext, useEffect } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 // components
 import IntroText from "../../shared/intro-text/IntroText";
 import QuizBox from "./quiz-box/QuizBox";
@@ -11,9 +11,15 @@ import { useHttpClient } from "../../../hooks/http-hook";
 
 const TestYourself = () => {
   // context
-  const { isStarted, setIsStarted, setFetchedQuizArr, fetchedArr } = useContext(
-    AppContext
-  );
+  const {
+    isStarted,
+    setIsStarted,
+    setFetchedQuizArr,
+    fetchedArr,
+    quizWord,
+    setQuizWord,
+  } = useContext(AppContext);
+  const [wordCounter, setWordCounter] = useState(0);
   // hook
   const { sendRequest } = useHttpClient();
 
@@ -37,16 +43,23 @@ const TestYourself = () => {
         "Content-Type": "json/application",
       });
       setFetchedQuizArr(fetchedArr);
+      setQuizWord(fetchedArr[wordCounter].value);
+      setWordCounter((pre) => pre + 1);
 
       console.log(fetchedArr);
     } catch (error) {
       console.log(error);
     }
-  }, [setIsStarted, isStarted, setFetchedQuizArr, sendRequest]);
+  }, [
+    setIsStarted,
+    isStarted,
+    setFetchedQuizArr,
+    sendRequest,
+    setQuizWord,
+    wordCounter,
+  ]);
 
-  // useEffect(() => {
-  //   start();
-  // }, [start]);
+  // useEffect(() => {}, []);
 
   return (
     <Container className={mainContainer}>
@@ -56,7 +69,7 @@ const TestYourself = () => {
           {!isStarted ? "Start Quiz" : "Restart"}
         </Button>
         <Paper className={count}>
-          {1} / {fetchedArr?.length | 0}
+          {1} / {fetchedArr ? fetchedArr.length : 0}
         </Paper>
       </div>
 

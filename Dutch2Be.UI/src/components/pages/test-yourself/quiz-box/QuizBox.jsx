@@ -20,7 +20,15 @@ const QuizBox = () => {
   } = useStyles();
 
   // context
-  const { fetchedQuizArr, setFetchedQuizArr } = useContext(AppContext);
+  const {
+    isStarted,
+    setIsStarted,
+    setFetchedQuizArr,
+    fetchedArr,
+    quizWord,
+    setQuizWord,
+    fetchedQuizArr,
+  } = useContext(AppContext);
 
   // hooks
   const { sendRequest } = useHttpClient();
@@ -41,7 +49,8 @@ const QuizBox = () => {
     <Grid container className={boxContainer}>
       <Grid item container xs={12} className={displayGrid}>
         <Paper elevation={0} className={display}>
-          {/* {fetchedQuizArr[0].value} */}woord
+          {(fetchedQuizArr && fetchedQuizArr[0] && fetchedQuizArr[0].value) ||
+            "woord"}
         </Paper>
       </Grid>
 
