@@ -44,10 +44,7 @@ const QuizBox = () => {
     async (e) => {
       const clickedArticle = e.target.innerText || e.target.textContent;
 
-      // check answer
-      // setIsCorrect(fetchedQuizArr[quizWordCounter].article === clickedArticle);
-
-      //update score
+      // check answer update score
       if (fetchedQuizArr[quizWordCounter].article === clickedArticle) {
         setCorrectScore((pre) => pre + 1);
       } else {
@@ -66,7 +63,7 @@ const QuizBox = () => {
 
       // alert the answer status
       // end quiz
-      if (quizWordCounter > 9) {
+      if (quizWordCounter >= 9) {
         setQuizWordCounter(0);
         setIsStarted(false);
       }

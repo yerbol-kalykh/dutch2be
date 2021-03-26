@@ -67,7 +67,7 @@ const TestYourself = () => {
 
   const displayWordsCount = useCallback(() => {
     return `${isStarted ? quizWordCounter + 1 : 0} / ${
-      fetchedQuizArr?.length || 0
+      isStarted ? fetchedQuizArr?.length : 0
     }`;
   }, [quizWordCounter, fetchedQuizArr, isStarted]);
 
