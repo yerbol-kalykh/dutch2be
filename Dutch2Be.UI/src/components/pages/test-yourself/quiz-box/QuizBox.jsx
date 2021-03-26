@@ -64,7 +64,7 @@ const QuizBox = () => {
       // alert the answer status
       // end quiz
       if (quizWordCounter >= 9) {
-        setQuizWordCounter(0);
+        // setQuizWordCounter(0);
         setIsStarted(false);
       }
     },
