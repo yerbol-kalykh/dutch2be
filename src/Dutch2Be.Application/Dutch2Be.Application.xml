@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dutch2Be.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Dutch2Be.Application.Words.Models.WordDto">
+            <summary>
+            A word with Id, Value and Article
+            </summary>
+        </member>
+        <member name="P:Dutch2Be.Application.Words.Models.WordDto.Id">
+            <summary>
+            The Id of the word
+            </summary>
+        </member>
+        <member name="P:Dutch2Be.Application.Words.Models.WordDto.Value">
+            <summary>
+            The value of the word
+            </summary>
+        </member>
+        <member name="P:Dutch2Be.Application.Words.Models.WordDto.Article">
+            <summary>
+            The article of the word
+            </summary>
+        </member>
+    </members>
+</doc>

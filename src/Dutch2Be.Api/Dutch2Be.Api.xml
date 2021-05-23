@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Dutch2Be.Api</name>
+    </assembly>
+    <members>
+        <member name="M:Dutch2Be.Api.Controllers.WordsController.GetRandomWords(System.Int32)">
+            <summary>
+            Get random words
+            </summary>
+            <param name="noOfWords"></param>
+            <returns>List of words</returns>
+            <response code="200">Returns list of words</response>      
+        </member>
+        <member name="M:Dutch2Be.Api.Controllers.WordsController.GetByValue(System.String)">
+            <summary>
+            Get article for word
+            </summary>
+            <param name="value"></param>
+            <returns>Return word with article</returns>
+            <response code="200">Returs word with article</response> 
+            <response code="404">If the word not found</response>  
+        </member>
+    </members>
+</doc>
